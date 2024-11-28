@@ -1,10 +1,8 @@
 const routes = [
   {
-    path: '/',
-    component: () => import('layouts/MainLayout.vue'),
-    children: [
-      { path: '', component: () => import('pages/IndexPage.vue') }
-    ]
+    path: "/",
+    component: () => import("layouts/MainLayout.vue"),
+    children: [{ path: "", component: () => import("src/pages/Empresas.vue") }],
   },
   {
     path: '/login',
@@ -19,6 +17,48 @@ const routes = [
     children: [
       { path: '', component: () => import('pages/Registro.vue') }
     ]
+  },
+  {
+    path: '/his.trabajo/',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      { path: '', component: () => import('src/pages/HisTrabajo.vue'),
+        name: "His.trabajos",
+       },
+    ],
+  },
+  {
+    path: "/usuarios/",
+    component: () => import("layouts/MainLayout.vue"),
+    children: [
+      {
+        path: "",
+        component: () => import("src/pages/Users.vue"),
+        name: "users",
+      },
+    ],
+  },
+  {
+    path: "/trabajos/",
+    component: () => import("layouts/MainLayout.vue"),
+    children: [
+      {
+        path: "",
+        component: () => import("src/pages/Trabajo.vue"),
+        name: "jobs",
+      },
+    ],
+  },
+  {
+    path: "/Configuracion",
+    component: () => import("layouts/MainLayout.vue"),
+    children: [
+      {
+        path: "",
+        component: () => import("src/pages/UsuarioConfig.vue"),
+        name: "Configuracion",
+      },
+    ],
   },
   {
     path: "/empresas/",
@@ -38,57 +78,6 @@ const routes = [
         path: ":enterprise/operator/:pk/",
         component: () => import("src/pages/OperatorDetail.vue"),
         name: "operators-detail",
-      },
-    ],
-  },
-  {
-    path: "/usuarios/",
-    component: () => import("layouts/MainLayout.vue"),
-    children: [
-      {
-        path: "",
-        component: () => import("src/pages/Users.vue"),
-        name: "users",
-      },
-    ],
-  },
-  {
-    path: "/trabajos",
-    component: () => import("layouts/MainLayout.vue"),
-    children: [
-      {
-        path: "",
-        component: () => import("src/pages/Trabajo.vue"),
-        name: "trabajos",
-      },
-    ],
-  },
-  {
-    path: "/his.trabajo/",
-    component: () => import("layouts/MainLayout.vue"),
-    children: [
-      {
-        path: "",
-        component: () => import("src/pages/HisTrabajo.vue"),
-        name: "his.trabajo",
-      },
-    ],
-  },
-  {
-    path: "/cuenta/",
-    component: () => import("layouts/MainLayout.vue"),
-    children: [
-      
-    ],
-  },
-  {
-    path: "/Configuracion",
-    component: () => import("layouts/MainLayout.vue"),
-    children: [
-      {
-        path: "",
-        component: () => import("src/pages/UsuarioConfig.vue"),
-        name: "Configuracion",
       },
     ],
   },
