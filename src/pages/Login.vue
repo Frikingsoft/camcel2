@@ -7,7 +7,7 @@
     import { provide ,ref} from "vue"
     import login_registro from "../components/login_registro.vue" 
     import { validar } from "../composables/validar_campos"
-    import { api } from "src/boot/axios"
+    
     const pagina = ref('registro')
     const alto = ref("60%")
     const  { reglas_correo, reglas_contra } = validar()
@@ -27,19 +27,7 @@
             } 
         })
         
-  api
-    .post("/login", {
-       datos
-    })
-    .then(function (response) {
-      userStore.setToken(response.data.access_token);
-      userStore.setUser (response.data.user);
-      userStore.setAuth(true);
-      router.push("/");
-    })
-    .catch(function (error) {
-      console.log(error);
-    })
+ 
 }
  provide("entradas",entradas.value)
     provide("pagina",pagina)

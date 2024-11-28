@@ -1,7 +1,7 @@
 import { ref } from "vue"
 export const validar = ()=>{
     const contraseña = ref('')
-    const reglas_empresa = [
+    const reglas_usuario = [
       (val) => (val && val.length > 6 ) || "Ingrese un nombre de al menos  6 caracteres",
               
     ]
@@ -28,11 +28,22 @@ export const validar = ()=>{
         (val) => (val && /[!@#$%^&*(),.?":{}|<>]/.test(val)) || "Debe incluir al menos un carácter especial",
         (val) => (val === contraseña.value) || "Las contraseñas no coinciden" // Comparar con el campo de Contraseña
       ];
-        
+    const enviar_post =async (url,datos)=>{
+      await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({datos}) // Convertir los datos a JSON
+      })
+      .then(response => response.json())
+      .then(data => console.log(data))
+    }    
     return{
-        reglas_empresa,
+        reglas_usuario,
         reglas_correo,
         reglas_contra,
-        reglas_repetir_contra
+        reglas_repetir_contra,
+        enviar_post
     }
 }

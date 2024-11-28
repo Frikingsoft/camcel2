@@ -2,7 +2,7 @@
     <q-card class="fondo_azul col-xs-12 col-md-6 col-lg-4 row justify-center items-center">
             <q-card class="my-card col-sm-7 col-xs-10 col-md-11 col-lg-10 row">
                 <q-card-section class="col-12 flex flex-center">
-                    <q-avatar size="128px" font-size="100px" color="teal-9" text-color="white" icon="mdi-account-check-outline" />
+                    <q-avatar size="128px" font-size="100px"  class="avatar" text-color="white" icon="mdi-account-check-outline" />
                 </q-card-section>
                 <q-card-section class="col-12 row flex flex-center">
                     <q-input v-for="(entrada,index) in entradas"
@@ -17,7 +17,7 @@
                             
                             >
                     <template v-slot:before>
-                        <q-icon :class="{animar: entrada.nombre ==='password'}" size="32px" :name="entrada.icono" v-if="entrada.estado" @click="cambiar_estado(entrada.nombre)"/>
+                        <q-icon :class="{animar: entrada.nombre ==='password' || entrada.nombre==='repetir_password'}" size="32px" :name="entrada.icono" v-if="entrada.estado" @click="cambiar_estado(entrada.nombre)"/>
                          <q-icon class="animar teal-9" name="mdi-lock-open-variant-outline" size="32px" @click="cambiar_estado(entrada.nombre)" v-if='!entrada.estado && entrada.nombre=="password" || !entrada.estado && entrada.nombre==="repetir_password"' />
                     </template>
                 </q-input>
@@ -86,7 +86,7 @@
     .animar:hover{
   animation: animar .5s;
   transform: scale(1.1);
- color: rgb(29, 98, 68);
+ color: rgb(8, 93,112);
 }
 @keyframes animar {
   from{
@@ -100,7 +100,7 @@
 }
 .boton_enviar{
     width: 40%;
-    background-color: rgb(0, 105, 92);
+    background-color: rgb(8, 93,112);
     color: white;
     box-shadow: 1px 1px 1px rgb(73, 73, 73),2px 2px 2px rgb(255, 255, 255),
     3px 3px 3px rgb(101, 101, 101),4px 4px 2px rgb(255, 255, 255),5px 5px 2px rgb(15, 15, 15);
@@ -110,7 +110,7 @@
 }
 .boton_enviar:hover{
     transition: .5s;
-    background-color: rgb(0, 105, 92);
+    background-color: rgb(8, 93,112);
     color: white;
     
 }
@@ -118,6 +118,9 @@
     color: white;
 }
 .botones{
-  background-color: rgb(8, 43, 83);
+  background-color: rgb(8, 93,112);
+}
+.avatar{
+    background-color: rgb(8, 93,112);
 }
 </style>
