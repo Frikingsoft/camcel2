@@ -23,7 +23,7 @@
                 </q-input>
                 </q-card-section>
                 <q-card-section class="col-12 flex justify-center">
-                    <q-btn label="Enviar" type="submit" class="boton_enviar q-mr-md"/>
+                    <q-btn label="Enviar" type="submit" class="boton_enviar q-mr-md" @click="enviar"/>
                     <q-btn :label="pagina" type="submit" class="boton_enviar" @click="enviar_registro"/>
                 </q-card-section>
             </q-card>
@@ -38,6 +38,7 @@
     const entradas = inject("entradas")
     const pagina = inject("pagina")
     const alto = inject("alto")
+    const enviar = inject("enviar")
     const cambiar_estado = (nombre,estado) => {
     let entrada = entradas.find((e) => e.nombre === nombre)
         if(nombre==="password"){

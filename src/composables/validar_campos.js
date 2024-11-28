@@ -27,7 +27,8 @@ export const validar = ()=>{
         (val) => (val && /\d/.test(val)) || "Debe incluir al menos un número",
         (val) => (val && /[!@#$%^&*(),.?":{}|<>]/.test(val)) || "Debe incluir al menos un carácter especial",
         (val) => (val === contraseña.value) || "Las contraseñas no coinciden" // Comparar con el campo de Contraseña
-      ];  
+      ];
+        
     return{
         reglas_empresa,
         reglas_correo,
